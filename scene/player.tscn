@@ -683,9 +683,16 @@ script = ExtResource("1_irgbm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ifa0a")
-animation = &"s_tab"
-frame_progress = 0.0682379
+animation = &"idle"
+frame_progress = 0.583653
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_gmyeu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
+limit_left = -563
+limit_top = -416
+limit_right = 573
+limit_bottom = 530

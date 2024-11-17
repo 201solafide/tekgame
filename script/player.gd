@@ -72,12 +72,16 @@ func play_anim(dir):
 			$AnimatedSprite2D.play("s_tab")
 		elif dir.x == -1:
 			$AnimatedSprite2D.play("a_tab")
-		else:
+		elif (dir.x > 0.5 and dir.y > 0.5) or (dir.x < -0.5 and dir.y > 0.5):
+			$AnimatedSprite2D.play("s_tab")
+		elif (dir.x < -0.5 and dir.y < -0.5) or (dir.x > 0.5 and dir.y < -0.5):
+			$AnimatedSprite2D.play("w_tab")
+		else :
 			$AnimatedSprite2D.play("s_tab")
 func player():
 	# mengecek apakah spasi ditekan
 	if Input.is_action_just_pressed("attack") and not attacking:
-		attacking = true # set status menyeranga
+		attacking = true # set status menyerang
 		move_while_attack = Input.get_vector("left", "right", "up", "down")
 		attack()
 

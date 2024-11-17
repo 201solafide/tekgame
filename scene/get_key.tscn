@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://bon7s2p4a3b6u"]
+
+[ext_resource type="Script" path="res://script/get_key.gd" id="1_5n5yn"]
+[ext_resource type="Texture2D" uid="uid://bqjbbfjh30nln" path="res://art/Tiles.png" id="1_le3qi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7ufe"]
+atlas = ExtResource("1_le3qi")
+region = Rect2(320, 279, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnisg"]
+atlas = ExtResource("1_le3qi")
+region = Rect2(288, 280, 32, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_avjmg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7ufe")
+}],
+"loop": true,
+"name": &"key_no_box",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnisg")
+}],
+"loop": true,
+"name": &"keys_in_box",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j5lol"]
+radius = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t625s"]
+size = Vector2(45, 30)
+
+[node name="get_key" type="Node2D"]
+script = ExtResource("1_5n5yn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 4)
+scale = Vector2(1.0625, 1.28571)
+sprite_frames = SubResource("SpriteFrames_avjmg")
+animation = &"keys_in_box"
+
+[node name="Area2D_Open" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Open"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_j5lol")
+
+[node name="Timer_up" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -22.0
+offset_top = -14.0
+offset_right = 43.0
+offset_bottom = 1.0
+theme_override_font_sizes/font_size = 7
+text = "press \"o\" to open"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D_PickKey" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_PickKey"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_t625s")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-1, 0)
