@@ -6139,35 +6139,3 @@ layer_2/tile_data = PackedInt32Array(131093, 589826, 2, 196629, 589826, 3, 13109
 
 [node name="get_key" parent="." instance=ExtResource("3_hm5ao")]
 position = Vector2(361, -241)
-
-[node name="StaticBody2D_collison" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D_3" type="CollisionPolygon2D" parent="StaticBody2D_collison"]
-polygon = PackedVector2Array(-432, 272, -66, 273, -66, 111, -433, 110, -433, 110)
-
-[node name="CollisionPolygon2D_4" type="CollisionPolygon2D" parent="StaticBody2D_collison"]
-polygon = PackedVector2Array(-32, 111, -32, 270, 188, 270, 189, 113)
-
-[node name="CollisionPolygon2D_5" type="CollisionPolygon2D" parent="StaticBody2D_collison"]
-polygon = PackedVector2Array(-434, -272, -432, -125, -321, -127, -322, -272)
-
-[node name="CollisionPolygon2D_6" type="CollisionPolygon2D" parent="StaticBody2D_collison"]
-polygon = PackedVector2Array(-431, -78, -321, -80, -322, 78, -432, 78)
-
-[node name="CollisionPolygon2D_7" type="CollisionPolygon2D" parent="StaticBody2D_collison"]
-polygon = PackedVector2Array(-286, -274, -177, -274, -174, -174, -163, -162, -159, -122, -148, -114, -128, -114, -126, 26, -100, 32, -98, 76, -289, 78)
-
-[node name="CollisionPolygon2D_8" type="CollisionPolygon2D" parent="StaticBody2D_collison"]
-polygon = PackedVector2Array(-145, -271, 78, -272, 76, -241, 68, -227, 69, 45, 78, 62, 79, 76, -65, 77, -66, 4, -77, -2, -95, -2, -95, -2, -95, -137, -103, -144, -129, -144, -128, -187, -141, -199)
-
-[node name="CollisionPolygon2D_9" type="CollisionPolygon2D" parent="StaticBody2D_collison"]
-polygon = PackedVector2Array(111, -272, 113, -244, 125, -225, 122, 47, 109, 60, 111, 79, 189, 79, 195, 26, 200, 15, 222, 15, 222, -39, 243, -47, 252, -48, 253, -87, 278, -97, 288, -97, 290, -150, 303, -162, 332, -163, 333, -230, 340, -248, 346, -252, 350, -272)
-
-[node name="CollisionPolygon2D_2" type="CollisionPolygon2D" parent="StaticBody2D_collison"]
-polygon = PackedVector2Array(-223, 302, 191, 302, 191, 319, 177, 335, 136, 338, 129, 365, 113, 377, 113, 396, 72, 402, 63, 427, -222, 429, -222, 429)
-
-[node name="CollisionPolygon21" type="CollisionPolygon2D" parent="StaticBody2D_collison"]
-polygon = PackedVector2Array(-262, 535, -258, 304, -458, 300, -465, 15, -577, 17, -577, -17, -470, -19, -472, -309, -19, -309, -19, -352, 20, -348, 30, -377, 77, -380, 77, -416, 130, -412, 141, -448, 191, -444, 241, -448, 241, -416, 184, -409, 177, -377, 119, -366, 119, -338, 66, -341, 66, -320, 58, -311, 46, -307, 15, -306, 19, -302, 62, -301, 130, -302, 213, -305, 226, -388, 294, -387, 301, -462, -214, -459, -551, -403, -602, -247, -641, 7, -621, 166, -576, 440, -423, 522)
-
-[node name="CollisionPolygon2D_1_1" type="CollisionPolygon2D" parent="StaticBody2D_collison"]
-polygon = PackedVector2Array(-227, 545, -227, 458, 88, 460, 92, 430, 145, 428, 145, 402, 156, 390, 156, 366, 204, 362, 213, 351, 226, 334, 222, 47, 256, 47, 253, -17, 292, -17, 290, -59, 324, -66, 319, -127, 365, -130, 375, -176, 371, -218, 389, -214, 389, -268, 571, -272, 567, -310, 209, -310, 302, -381, 544, -415, 695, -366, 668, -166, 619, -41, 532, 299, 423, 469, 79, 533, -267, 541)

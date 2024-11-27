@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ft71sbl5e7g0"
-path="res://.godot/imported/Male Hair2.png-58405fcb0c0fc218078858b8cf2117fe.ctex"
+uid="uid://bbe2pjmn1u5ea"
+path="res://.godot/imported/Tiles.png-342b531c833361579362083d52a6d4a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/GandalfHardcore Character Asset Pack/Male Hair/Male Hair2.png"
-dest_files=["res://.godot/imported/Male Hair2.png-58405fcb0c0fc218078858b8cf2117fe.ctex"]
+source_file="res://art/Tile_Asset_Test/Tiles.png"
+dest_files=["res://.godot/imported/Tiles.png-342b531c833361579362083d52a6d4a8.ctex"]
 
 [params]
 

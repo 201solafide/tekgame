@@ -1,14 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bon7s2p4a3b6u"]
+[gd_scene load_steps=7 format=3 uid="uid://bon7s2p4a3b6u"]
 
 [ext_resource type="Script" path="res://script/get_key.gd" id="1_5n5yn"]
-[ext_resource type="Texture2D" uid="uid://bqjbbfjh30nln" path="res://art/Tiles.png" id="1_le3qi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7ufe"]
-atlas = ExtResource("1_le3qi")
 region = Rect2(320, 279, 32, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tnisg"]
-atlas = ExtResource("1_le3qi")
 region = Rect2(288, 280, 32, 28)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_avjmg"]
