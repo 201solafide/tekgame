@@ -923,6 +923,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4tei1"]
+<<<<<<< HEAD
 radius = 87.0057
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_12wvm"]
@@ -930,14 +931,26 @@ radius = 24.7386
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mhkws"]
 radius = 66.2722
+=======
+radius = 53.4603
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_12wvm"]
+radius = 10.0499
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mhkws"]
+radius = 34.1321
+>>>>>>> 58c7c870d16f48d3accda5135f9ec8eb44b4f2f6
 
 [node name="enemy" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_vxqva")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+<<<<<<< HEAD
 position = Vector2(2, -1)
 scale = Vector2(3.79688, 3.51563)
+=======
+>>>>>>> 58c7c870d16f48d3accda5135f9ec8eb44b4f2f6
 sprite_frames = SubResource("SpriteFrames_pb1pj")
 animation = &"attack_right"
 frame_progress = 0.908231
@@ -947,11 +960,18 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_detection"]
+<<<<<<< HEAD
 position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_4tei1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 33)
+=======
+shape = SubResource("CircleShape2D_4tei1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+>>>>>>> 58c7c870d16f48d3accda5135f9ec8eb44b4f2f6
 shape = SubResource("CircleShape2D_12wvm")
 
 [node name="Area2D_combat" type="Area2D" parent="."]
@@ -959,7 +979,11 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_combat"]
+<<<<<<< HEAD
 position = Vector2(1, 0)
+=======
+position = Vector2(-1, 3)
+>>>>>>> 58c7c870d16f48d3accda5135f9ec8eb44b4f2f6
 shape = SubResource("CircleShape2D_mhkws")
 
 [node name="attackTimer" type="Timer" parent="."]

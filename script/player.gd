@@ -5,7 +5,11 @@ var attack_power = 10
 var combat_state = false
 var current_enemy = null
 
+<<<<<<< HEAD
 var speed = 400
+=======
+var speed = 100
+>>>>>>> 58c7c870d16f48d3accda5135f9ec8eb44b4f2f6
 var player_state
 
 func _ready() -> void:

@@ -816,22 +816,33 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmyeu"]
+<<<<<<< HEAD
 radius = 37.2156
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wc0rk"]
 radius = 100.688
+=======
+radius = 6.08276
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wc0rk"]
+radius = 25.02
+>>>>>>> 58c7c870d16f48d3accda5135f9ec8eb44b4f2f6
 
 [node name="player" type="CharacterBody2D"]
 collision_layer = 7
 script = ExtResource("1_irgbm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+<<<<<<< HEAD
 position = Vector2(0.999996, -1.00001)
 scale = Vector2(6.25, 5.25)
+=======
+>>>>>>> 58c7c870d16f48d3accda5135f9ec8eb44b4f2f6
 sprite_frames = SubResource("SpriteFrames_ifa0a")
 animation = &"s_death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+<<<<<<< HEAD
 position = Vector2(3, 39)
 shape = SubResource("CircleShape2D_gmyeu")
 
@@ -841,13 +852,28 @@ limit_left = -1896
 limit_top = -720
 limit_right = 1532
 limit_bottom = 1950
+=======
+position = Vector2(1, 7)
+shape = SubResource("CircleShape2D_gmyeu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
+limit_left = -289
+limit_top = -416
+limit_right = 275
+limit_bottom = 530
+>>>>>>> 58c7c870d16f48d3accda5135f9ec8eb44b4f2f6
 
 [node name="Area2D_combat" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_combat"]
+<<<<<<< HEAD
 position = Vector2(3, 5)
+=======
+position = Vector2(0, 1)
+>>>>>>> 58c7c870d16f48d3accda5135f9ec8eb44b4f2f6
 shape = SubResource("CircleShape2D_wc0rk")
 
 [node name="attackTimer" type="Timer" parent="."]
