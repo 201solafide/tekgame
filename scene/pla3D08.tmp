@@ -819,10 +819,10 @@ animations = [{
 radius = 6.08276
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wc0rk"]
-radius = 25.02
+radius = 15.1327
 
 [node name="player" type="CharacterBody2D"]
-collision_layer = 7
+collision_layer = 3
 script = ExtResource("1_irgbm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -835,14 +835,13 @@ shape = SubResource("CircleShape2D_gmyeu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)
-limit_left = -289
+limit_left = -563
 limit_top = -416
-limit_right = 275
+limit_right = 573
 limit_bottom = 530
 
 [node name="Area2D_combat" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_combat"]
 position = Vector2(0, 1)

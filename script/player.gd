@@ -1,94 +1,123 @@
 extends CharacterBody2D
 
+var HP = 100
+var attack_power = 10
+var combat_state = false
+var current_enemy = null
+
 var speed = 100
 var player_state
 
-var attacking = false # status serangan
-var move_while_attack = false # status apakah character bergerak saat menyerang
+func _ready() -> void:
+	$AnimatedSprite2D.play("idle")
 
 func _physics_process(delta):
-	#var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction = Input.get_vector("left", "right", "up", "down")
+	player_move(delta)
 	
-	# mengecek apakah pemain sedang menyerang tanpa bergerak
-	if not attacking:
-		# jika sedang bergerak
-		if direction == Vector2.ZERO:
-			player_state = "idle"
-		else:
-			player_state = "walking"
-			move_character(direction)
-	elif move_while_attack:
-		# mengecek bergerak saat menyerang
-		move_character(direction)
+func player_move(delta):
+	#var direction = Input.get_vector("left", "right", "up", "down")
 	
-	play_anim(direction)
+	if Input.is_action_pressed("move_right"):
+		player_state = "right"
+		play_anim(1)
+		velocity.x = speed
+		velocity.y = 0
+	elif Input.is_action_pressed("move_left"):
+		player_state = "left"
+		play_anim(1)
+		velocity.x = -speed
+		velocity.y = 0
+	elif Input.is_action_pressed("move_up"):
+		player_state = "up"
+		play_anim(1)
+		velocity.y = -speed
+		velocity.x = 0
+	elif Input.is_action_pressed("move_down"):
+		player_state = "down"
+		play_anim(1)
+		velocity.y = speed
+		velocity.x = 0
+	else:
+		play_anim(0)
+		velocity.x = 0
+		velocity.y = 0
 	
-	player() # input serangan
-	
-	# mengecek arah pergerakkan
-	#if direction.x == 0 and direction.y == 0:
-		#player_state = "idle"
-	#elif direction.x != 0 or direction.y != 0:
-		#player_state = "walking"
-		#
-	#velocity = direction * speed
-	#move_and_slide()
-	#
-	#play_anim(direction)
-	#player()
-func move_character(dir):
-	velocity = dir * speed
 	move_and_slide()
-	
-func play_anim(dir):
-	if player_state == "idle" and not attacking:
-		$AnimatedSprite2D.play("idle")
-	if player_state == "walking" and not attacking:
-		if dir.y == -1:
-			$AnimatedSprite2D.play("w_walk") # ke atas
-		if dir.x == 1:
-			$AnimatedSprite2D.play("d_walk") # ke kanan
-		if dir.y == 1:
-			$AnimatedSprite2D.play("s_walk") # ke bawah
-		if dir.x == -1:
-			$AnimatedSprite2D.play("a_walk") # ke kiri
-		
-		if dir.x > 0.5 and dir.y < -0.5:
-			$AnimatedSprite2D.play("d_walk")
-		if dir.x > 0.5 and dir.y > 0.5:
-			$AnimatedSprite2D.play("d_walk")
-		if dir.x < -0.5 and dir.y > 0.5:
-			$AnimatedSprite2D.play("a_walk")
-		if dir.x < -0.5 and dir.y < -0.5:			
-			$AnimatedSprite2D.play("a_walk")
-	if attacking:
-		# animasi serangan sesuai arah
-		if dir.y == -1:
-			$AnimatedSprite2D.play("w_tab")
-		elif dir.x == 1:
-			$AnimatedSprite2D.play("d_tab")
-		elif dir.y == 1:
-			$AnimatedSprite2D.play("s_tab")
-		elif dir.x == -1:
-			$AnimatedSprite2D.play("a_tab")
-		elif (dir.x > 0.5 and dir.y > 0.5) or (dir.x < -0.5 and dir.y > 0.5):
-			$AnimatedSprite2D.play("s_tab")
-		elif (dir.x < -0.5 and dir.y < -0.5) or (dir.x > 0.5 and dir.y < -0.5):
-			$AnimatedSprite2D.play("w_tab")
-		else :
-			$AnimatedSprite2D.play("s_tab")
-func player():
-	# mengecek apakah spasi ditekan
-	if Input.is_action_just_pressed("attack") and not attacking:
-		attacking = true # set status menyerang
-		move_while_attack = Input.get_vector("left", "right", "up", "down")
-		attack()
 
-func attack():
-	# menyimpan durasi serngan
-	var attack_duration = 0.4
-	await get_tree().create_timer(attack_duration).timeout
-	attacking = false
-	move_while_attack = false
-		
+func play_anim(movement):
+	var dir = player_state
+	
+	if dir == "right":
+		$AnimatedSprite2D.flip_h = false
+		if movement == 1:
+			$AnimatedSprite2D.play("d_walk")
+		elif movement == 0:
+			$AnimatedSprite2D.play("right")
+	elif dir == "left":
+		$AnimatedSprite2D.flip_h = false
+		if movement == 1:
+			$AnimatedSprite2D.play("a_walk")
+		elif movement == 0:
+			$AnimatedSprite2D.play("left")
+	elif dir == "up":
+		$AnimatedSprite2D.flip_h = true
+		if movement == 1:
+			$AnimatedSprite2D.play("w_walk")
+		elif movement == 0:
+			$AnimatedSprite2D.play("back")
+	elif dir == "down":
+		$AnimatedSprite2D.flip_h = true
+		if movement == 1:
+			$AnimatedSprite2D.play("s_walk")
+		elif movement == 0:
+			$AnimatedSprite2D.play("idle")
+
+# animateed untuk player cmmbat
+func _on_area_2d_combat_body_entered(body):
+	if body.name == "enemy":
+		current_enemy = body
+		combat_state = true
+		start_combat(body)
+
+func _on_area_2d_combat_body_exited(body):
+	if body.name == "enemy":
+		current_enemy = null
+		combat_state = false
+
+func start_combat(enemy):
+	if not combat_state:
+		return
+	
+	print($AnimatedSprite2D.animation)
+	# animasi player menyerang berdasarkan arah
+	var direction = (enemy.position - position)/speed
+	if abs(direction.x) > abs(direction.y):
+		if direction.x > 0:
+			$AnimatedSprite2D.play("d_tab")
+		else:
+			$AnimatedSprite2D.play("a_tab")
+	else:
+		if direction.y > 0:
+			$AnimatedSprite2D.play("s_tab")
+		else:
+			$AnimatedSprite2D.play("w_tab")
+	
+	$attackTimer.start(1)
+	$attackTimer.connect("timeout", Callable(self, "_on_attack_timer_timeout"))
+
+func take_damage(amount):
+	HP -= amount
+	print(HP)
+	if HP <= 0:
+		player_die()
+
+func player_die():
+	combat_state = false
+	queue_free() # menghapus player dari game
+	
+func _on_attack_timer_timeout():
+	if combat_state and current_enemy:
+		current_enemy.take_damage(attack_power)
+
+func player():
+	pass
