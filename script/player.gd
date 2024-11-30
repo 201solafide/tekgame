@@ -72,6 +72,9 @@ func play_anim(movement):
 		elif movement == 0:
 			$AnimatedSprite2D.play("idle")
 
+func player():
+	pass
+
 # animateed untuk player cmmbat
 func _on_area_2d_combat_body_entered(body):
 	if body.name == "enemy":
@@ -118,6 +121,3 @@ func player_die():
 func _on_attack_timer_timeout():
 	if combat_state and current_enemy:
 		current_enemy.take_damage(attack_power)
-
-func player():
-	pass
